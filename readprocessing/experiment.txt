@@ -1,0 +1,9 @@
+V1S1	digesting
+V1S2	digesting
+V1S3	digesting
+V1S4	seeking
+V1S5	seeking
+V1S6	seeking
+V1S7	attacking
+V1S8	attacking
+V1S9	attacking
