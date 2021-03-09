@@ -20,7 +20,7 @@ date=$(date "+%Y-%m-%d")
 # Define log file and redirect stdout and stderr to this file
 if [ ! -d "${moduledir}/Logs/" ]; then
   mytime=$(date "+%Y-%m-%d %H:%M:%S")
-  echo "$mytime Make directory ${moduledir}/Logs/"
+  echo "${mytime} Make directory ${moduledir}/Logs/"
   mkdir ${moduledir}/Logs/
 fi
 log_file="${moduledir}/Logs/log_$date"
@@ -29,31 +29,31 @@ exec &> >(tee -a "$log_file")
 # Create necessary folders
 if [ ! -d "${moduledir}/readprocessing/" ]; then
   mytime=$(date "+%Y-%m-%d %H:%M:%S")
-  echo "$mytime Make directory ${moduledir}/readprocessing/"
+  echo "${mytime} Make directory ${moduledir}/readprocessing/"
   mkdir ${moduledir}/readprocessing/
 fi
 
 if [ ! -d "${moduledir}/readprocessing/corrected/" ]; then
   mytime=$(date "+%Y-%m-%d %H:%M:%S")
-  echo "$mytime Make directory ${moduledir}/readprocessing/corrected/"
+  echo "${mytime} Make directory ${moduledir}/readprocessing/corrected/"
   mkdir ${moduledir}/readprocessing/corrected/
 fi
 
 if [ ! -d "${moduledir}/readprocessing/fastqc/" ]; then
   mytime=$(date "+%Y-%m-%d %H:%M:%S")
-  echo "$mytime Make directory ${moduledir}/readprocessing/fastqc/"
+  echo "${mytime} Make directory ${moduledir}/readprocessing/fastqc/"
   mkdir ${moduledir}/readprocessing/fastqc/
 fi
 
 if [ ! -d "${moduledir}/readprocessing/fastqc/raw/" ]; then
   mytime=$(date "+%Y-%m-%d %H:%M:%S")
-  echo "$mytime Make directory ${moduledir}/readprocessing/fastqc/raw/"
+  echo "${mytime} Make directory ${moduledir}/readprocessing/fastqc/raw/"
   mkdir ${moduledir}/readprocessing/fastqc/raw/
 fi
 
 if [ ! -d "${moduledir}/readprocessing/fastqc/processed/" ]; then
   mytime=$(date "+%Y-%m-%d %H:%M:%S")
-  echo "$mytime Make directory ${moduledir}/readprocessing/fastqc/processed"
+  echo "${mytime} Make directory ${moduledir}/readprocessing/fastqc/processed"
   mkdir ${moduledir}/readprocessing/fastqc/processed/
 fi
 
