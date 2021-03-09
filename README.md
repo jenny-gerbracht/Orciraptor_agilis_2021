@@ -29,4 +29,4 @@ CAZY -> how to parse
 2) R script with DESeq2 and Figures
 
 ## Module 5: Assembly summary statistics
-1) # Genes, isoforms, ORFs, 
+1) number of Genes, isoforms, ORFs, 
