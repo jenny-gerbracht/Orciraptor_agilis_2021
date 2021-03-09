@@ -145,5 +145,5 @@ spades.py \
 -o NA_rnaspades
 source deactivate
 source activate trinity
-TrinityStats.pl ${moduledir}/NA_rnaspades/transcripts.fasta NA_assembly.txt
+TrinityStats.pl ${moduledir}/NA_rnaspades/transcripts.fasta > NA_assembly.txt
 source deactivate
