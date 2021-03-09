@@ -82,9 +82,28 @@ done
 #
 ####################################
 
-# rcorrector 
-if [ ! -d "${mydir}/readcorr/corrected/" ]; then
-  mkdir ${mydir}/rcorrector/corrected/
+if [ ! -d "${moduledir}/readprocessing/corrected/" ]; then
+  mytime=$(date "+%Y-%m-%d %H:%M:%S")
+  echo "$mytime Make directory ${moduledir}/readprocessing/corrected/"
+  mkdir ${moduledir}/readprocessing/corrected/
+fi
+
+if [ ! -d "${moduledir}/readprocessing/fastqc/" ]; then
+  mytime=$(date "+%Y-%m-%d %H:%M:%S")
+  echo "$mytime Make directory ${moduledir}/readprocessing/fastqc/"
+  mkdir ${moduledir}/readprocessing/fastqc/
+fi
+
+if [ ! -d "${moduledir}/readprocessing/fastqc/raw/" ]; then
+  mytime=$(date "+%Y-%m-%d %H:%M:%S")
+  echo "$mytime Make directory ${moduledir}/readprocessing/fastqc/raw/"
+  mkdir ${moduledir}/readprocessing/fastqc/raw/
+fi
+
+if [ ! -d "${moduledir}/readprocessing/fastqc/processed/" ]; then
+  mytime=$(date "+%Y-%m-%d %H:%M:%S")
+  echo "$mytime Make directory ${moduledir}/readprocessing/fastqc/processed"
+  mkdir ${moduledir}/readprocessing/fastqc/processed/
 fi
 
 # Start rcorrector
