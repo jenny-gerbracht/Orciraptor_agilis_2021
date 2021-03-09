@@ -2,7 +2,7 @@
 #$ -S /bin/bash
 . /etc/profile
 #$ -cwd
-#$ -pe -threaded 10
+#$ -pe threaded 10
 
 # Define paths to read and working directory locations
 readdir="/path/to/reads"
@@ -30,7 +30,7 @@ exec &> >(tee -a "$log_file")
 if [ ! -d "${moduledir}/readprocessing/" ]; then
   mytime=$(date "+%Y-%m-%d %H:%M:%S")
   echo "$mytime Make directory ${moduledir}/readprocessing/"
-  mkdir${moduledir}/readprocessing/
+  mkdir ${moduledir}/readprocessing/
 fi
 
 if [ ! -d "${moduledir}/readprocessing/corrected/" ]; then
@@ -58,8 +58,8 @@ if [ ! -d "${moduledir}/readprocessing/fastqc/processed/" ]; then
 fi
 
 # Make symlinks
-ln -s $readdir/HI.3499.002.D704---D504.NA_R1.fastq ${moduledir}/readprocessing/NA_R1.fastq
-ln -s $readdir/HI.3499.002.D704---D504.NA_R2.fastq ${moduledir}/readprocessing/NA_R2.fastq
+ln -s ${readdir}/HI.3499.002.D704---D504.NA_R1.fastq ${moduledir}/readprocessing/NA_R1.fastq
+ln -s ${readdir}/HI.3499.002.D704---D504.NA_R2.fastq ${moduledir}/readprocessing/NA_R1.fastq
 
 # kmer-based error correction with Rcorrector
 echo ""
