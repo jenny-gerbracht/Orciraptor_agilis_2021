@@ -3,16 +3,58 @@
 . /etc/profile
 #$ -cwd
 
-# Give absolute paths to the experiment file and to the project folder
-srvdir="/scratch2/shess/TRANSCRIPTOMES/ORCIRAPTOR_RNASeq_FEB2017/READS/"
-mydir="/scratch4/shess/Jenny/201109_ORC_readprocessing"
-experiment_file="${mydir}/experiment.txt"
+# Define paths to read and working directory locations
+readdir="/path/to/reads"
+mydir="/path/to/wd"
+moduledir="${mydir}/Module_2"
 
-if [ ! -d "${mydir}/rcorrector/" ]; then		
-	    	mkdir ${mydir}/rcorrector/
+# Define paths to scripts
+Rcorrector_dir="/scratch2/software/anaconda/envs/rcorrector/bin/"
+Discard_dir="/scratch4/shess/Jenny/Scripts/"
+	
+# Log file
+# Get date
+date=$(date "+%Y-%m-%d")
+
+# Define log file and redirect stdout and stderr to this file
+if [ ! -d "${moduledir}/Logs/" ]; then
+  mytime=$(date "+%Y-%m-%d %H:%M:%S")
+  echo "$mytime Make directory ${moduledir}/Logs/"
+  mkdir ${moduledir}/Logs/
+fi
+log_file="${moduledir}/Logs/log_symlinks_$date"
+exec &> >(tee -a "$log_file")
+
+# Create necessary folders
+if [ ! -d "${moduledir}/readprocessing/" ]; then
+  mytime=$(date "+%Y-%m-%d %H:%M:%S")
+  echo "$mytime Make directory ${moduledir}/readprocessing/"
+  mkdir ${moduledir}/readprocessing/
 fi
 
-	
+if [ ! -d "${moduledir}/readprocessing/corrected/" ]; then
+  mytime=$(date "+%Y-%m-%d %H:%M:%S")
+  echo "$mytime Make directory ${moduledir}/readprocessing/corrected/"
+  mkdir ${moduledir}/readprocessing/corrected/
+fi
+
+if [ ! -d "${moduledir}/readprocessing/fastqc/" ]; then
+  mytime=$(date "+%Y-%m-%d %H:%M:%S")
+  echo "$mytime Make directory ${moduledir}/readprocessing/fastqc/"
+  mkdir ${moduledir}/readprocessing/fastqc/
+fi
+
+if [ ! -d "${moduledir}/readprocessing/fastqc/raw/" ]; then
+  mytime=$(date "+%Y-%m-%d %H:%M:%S")
+  echo "$mytime Make directory ${moduledir}/readprocessing/fastqc/raw/"
+  mkdir ${moduledir}/readprocessing/fastqc/raw/
+fi
+
+if [ ! -d "${moduledir}/readprocessing/fastqc/processed/" ]; then
+  mytime=$(date "+%Y-%m-%d %H:%M:%S")
+  echo "$mytime Make directory ${moduledir}/readprocessing/fastqc/processed"
+  mkdir ${moduledir}/readprocessing/fastqc/processed/
+fi
 
 # Declare samples array
 declare -a samples
@@ -28,17 +70,17 @@ done < $experiment_file
 
 for i in "${samples[@]}"; do		
 			echo "Concatenate ${i}"
-			if [ -e "$mydir/rcorrector/${i}_1.fq.gz" ]; then
+			if [ -e "${moduledir}/readprocessing/${i}_1.fq.gz" ]; then
 		mytime=$(date "+%Y-%m-%d %H:%M:%S")
     		echo "$mytime FASTQ file link already created"
    	else
-		ln -s $srvdir/*${i}_R1.fastq.gz $mydir/rcorrector/${i}_1.fq.gz
+		ln -s ${readdir}/*${i}_R1.fastq.gz ${moduledir}/readprocessing/${i}_1.fq.gz
 	fi			
-			if [ -e "$mydir/rcorrector/${i}_2.fq.gz" ]; then
+			if [ -e "${moduledir}/readprocessing/${i}_1.fq.gz" ]; then
 		mytime=$(date "+%Y-%m-%d %H:%M:%S")
     		echo "$mytime FASTQ file link already created"
    	else
-		ln -s $srvdir/*${i}_R2.fastq.gz $mydir/rcorrector/${i}_2.fq.gz
+		ln -s ${readdir}/*${i}_R2.fastq.gz ${moduledir}/readprocessing/${i}_2.fq.gz
 	fi
 
 
