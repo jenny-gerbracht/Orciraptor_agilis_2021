@@ -78,12 +78,16 @@ echo "###################"
 echo "## Discard"
 echo "###################"
 echo ""
+cd ${moduledir}/readprocessing/corrected/
 python ${Discard_dir}/FilterUncorrectabledPEfastq.py \
--1 ${moduledir}/readprocessing/corrected/NA_R1.cor.fastq \
--2 ${moduledir}/readprocessing/corrected/NA_R2.cor.fastq \
+-1 ${moduledir}/readprocessing/corrected/NA_R1.cor.fq \
+-2 ${moduledir}/readprocessing/corrected/NA_R2.cor.fq \
 -s NA
 pigz unfixrm_NA_R1.cor.fq
 pigz unfixrm_NA_R2.cor.fq
+rm NA_R1.cor.fq
+rm NA_R2.cor.fq
+cd ${moduledir}
 
 # Perform quality and adapter trimming with Trim-Galore!
 source activate trim-galore
@@ -136,10 +140,10 @@ echo ""
 spades.py \
 --rna \
 --ss rf \
---pe-1 1 ${moduledir}/readprocessing/trim_galore \
---pe-2 1 ${moduledir}/readprocessing/trim_galore \
+--pe-1 1 ${moduledir}/readprocessing/trim_galore/unfixrm_NA_R1.cor_val_1.fq.gz \
+--pe-2 1 ${moduledir}/readprocessing/trim_galore/unfixrm_NA_R2.cor_val_2.fq.gz \
 -o NA_rnaspades
 source deactivate
 source activate trinity
-perl TrinityStats.pl ${moduledir}/NA_rnaspades/transcripts.fasta NA_assembly.txt
+TrinityStats.pl ${moduledir}/NA_rnaspades/transcripts.fasta NA_assembly.txt
 source deactivate
