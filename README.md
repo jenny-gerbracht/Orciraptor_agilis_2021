@@ -12,7 +12,7 @@ Read processing and filtering, de novo transcriptome assembly, differential gene
 2) Run symlinks.sh
 3) Run readprocessing.sh. Output are quality filtered and adapter trimmed reads that do not map to sequences from rRNA and/or Mougeotia sp.
 
-## Module 3: De novo transcriptome assembly, decontamination, summary statistics, ORF prediction
+## Module 3: De novo transcriptome assembly, decontamination, ORF prediction
 
 1) Run assembly.sh 
 2) Run blastn search with transcriptome
