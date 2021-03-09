@@ -39,21 +39,73 @@ if [ ! -d "${moduledir}/readprocessing/corrected/" ]; then
   mkdir ${moduledir}/readprocessing/corrected/
 fi
 
+if [ ! -d "${moduledir}/readprocessing/fastqc/" ]; then
+  mytime=$(date "+%Y-%m-%d %H:%M:%S")
+  echo "$mytime Make directory ${moduledir}/readprocessing/fastqc/"
+  mkdir ${moduledir}/readprocessing/fastqc/
+fi
+
+if [ ! -d "${moduledir}/readprocessing/fastqc/raw/" ]; then
+  mytime=$(date "+%Y-%m-%d %H:%M:%S")
+  echo "$mytime Make directory ${moduledir}/readprocessing/fastqc/raw/"
+  mkdir ${moduledir}/readprocessing/fastqc/raw/
+fi
+
+if [ ! -d "${moduledir}/readprocessing/fastqc/processed/" ]; then
+  mytime=$(date "+%Y-%m-%d %H:%M:%S")
+  echo "$mytime Make directory ${moduledir}/readprocessing/fastqc/processed"
+  mkdir ${moduledir}/readprocessing/fastqc/processed/
+fi
+
 # Make symlinks
 ln -s $readdir/HI.3499.002.D704---D504.NA_R1.fastq ${moduledir}/readprocessing/NA_R1.fastq
 ln -s $readdir/HI.3499.002.D704---D504.NA_R2.fastq ${moduledir}/readprocessing/NA_R2.fastq
 
 # kmer-based error correction with Rcorrector
-perl $Rcorrector_dir/run_rcorrector.pl \
+perl ${Rcorrector_dir}/run_rcorrector.pl \
   -p ${moduledir}/readprocessing/NA_R1.fastq ${moduledir}/readprocessing/NA_R2.fastq \
-  -od ${moduledir}/corrected/ \
+  -od ${moduledir}/readprocessing/corrected/ \
   -t 10
  
 # Remove unfixable read pairs, compress output
-python FilterUncorrectabledPEfastq.py \
--1 ${moduledir}/corrected/NA_R1.cor.fastq \
--2 ${moduledir}/corrected/NA_R2.cor.fastq \
+python ${Discard_dir}/FilterUncorrectabledPEfastq.py \
+-1 ${moduledir}/readprocessing/corrected/NA_R1.cor.fastq \
+-2 ${moduledir}/readprocessing/corrected/NA_R2.cor.fastq \
 -s NA
 pigz unfixrm_NA_R1.cor.fq
 pigz unfixrm_NA_R2.cor.fq
 
+# Perform quality and adapter trimming with Trim-Galore!
+source activate trim-galore
+trim_galore \
+--fastqc \
+-o ${moduledir}/readprocessing/trim_galore \
+-j 4 \
+--paired \
+--length 49 \
+${moduledir}/readprocessing/corrected/unfixrm_NA_R1.cor.fq.gz \
+${moduledir}/readprocessing/corrected/unfixrm_NA_R2.cor.fq.gz
+source deactivate
+
+# Generate folder with fastqc analysis of raw vs. processed reads
+source activate fastqc
+fastqc \
+-o ${moduledir}/readprocessing/fastqc/raw/ \
+${moduledir}/readprocessing/NA_R1.fastq \
+${moduledir}/readprocessing/NA_R2.fastq
+source deactivate
+mv ${moduledir}/readprocessing/trim_galore/unfixrm_NA_R1.cor_val_1_fastqc* ${moduledir}/readprocessing/fastqc/processed/
+mv ${moduledir}/readprocessing/trim_galore/unfixrm_NA_R2.cor_val_2_fastqc* ${moduledir}/readprocessing/fastqc/processed/
+
+# Assembly with rnaSPAdes and generate assembly summary statistics
+source activate spades
+spades.py \
+--rna \
+--ss rf \
+--pe-1 1 ${moduledir}/readprocessing/trim_galore \
+--pe-2 1 ${moduledir}/readprocessing/trim_galore \
+-o NA_rnaspades
+source deactivate
+source activate trinity
+perl TrinityStats.pl ${moduledir}/NA_rnaspades/transcripts.fasta NA_assembly.txt
+source deactivate
