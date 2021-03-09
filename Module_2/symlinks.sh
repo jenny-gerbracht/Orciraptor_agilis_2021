@@ -49,7 +49,7 @@ for i in "${samples[@]}"; do
    	else
 		ln -s ${readdir}/*${i}_R1.fastq.gz ${moduledir}/readprocessing/${i}_1.fq.gz
 	fi			
-			if [ -e "${moduledir}/readprocessing/${i}_1.fq.gz" ]; then
+			if [ -e "${moduledir}/readprocessing/${i}_2.fq.gz" ]; then
 		mytime=$(date "+%Y-%m-%d %H:%M:%S")
     		echo "$mytime FASTQ file link already created"
    	else
