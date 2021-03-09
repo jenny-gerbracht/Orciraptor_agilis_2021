@@ -275,5 +275,28 @@ done
 
 bowtie2-build ${mydir}/Module_1/NA_rnaspades/transcripts.fasta ${moduledir}/NA_ref/NA_ref.fasta
 
+echo ""
+echo "###################"
+echo "## Prey organism mapping bowtie2"
+echo "###################"
+echo ""
+echo -n "bowtie2 version: "
+fastqc -v
+echo ""
 
+for i in "${samples[@]}"; do
+  mytime=$(date "+%Y-%m-%d %H:%M:%S")
+  echo ""
+  echo "$mytime Start mapping of sample ${i}"
+  echo ""
   
+  bowtie2 \
+  -p 10 \
+  --phred33 \
+  --al-conc-gz ${moduledir}/readprocessing/blacklist_NA/blacklist_NA_paired_aligned_${i}.fq.gz \
+  --un-conc-gz ${moduledir}/readprocessing/blacklist_NA/blacklist_NA_paired_unaligned_${i}.fq.gz \
+  -x ${moduledir}/NA_ref/NA_ref.fasta \
+  -1 ${moduledir}/readprocessing/blacklist_rRNA/blacklist_rRNA_paired_unaligned_${i}.fq.1.gz \
+  -2 ${moduledir}/readprocessing/blacklist_rRNA/blacklist_rRNA_paired_unaligned_${i}.fq.2.gz
+  
+done
