@@ -7,11 +7,8 @@
 readdir="/path/to/reads"
 mydir="/path/to/wd"
 moduledir="${mydir}/Module_2"
+experiment_file="experiment.txt"
 
-# Define paths to scripts
-Rcorrector_dir="/scratch2/software/anaconda/envs/rcorrector/bin/"
-Discard_dir="/scratch4/shess/Jenny/Scripts/"
-	
 # Log file
 # Get date
 date=$(date "+%Y-%m-%d")
@@ -32,30 +29,6 @@ if [ ! -d "${moduledir}/readprocessing/" ]; then
   mkdir ${moduledir}/readprocessing/
 fi
 
-if [ ! -d "${moduledir}/readprocessing/corrected/" ]; then
-  mytime=$(date "+%Y-%m-%d %H:%M:%S")
-  echo "$mytime Make directory ${moduledir}/readprocessing/corrected/"
-  mkdir ${moduledir}/readprocessing/corrected/
-fi
-
-if [ ! -d "${moduledir}/readprocessing/fastqc/" ]; then
-  mytime=$(date "+%Y-%m-%d %H:%M:%S")
-  echo "$mytime Make directory ${moduledir}/readprocessing/fastqc/"
-  mkdir ${moduledir}/readprocessing/fastqc/
-fi
-
-if [ ! -d "${moduledir}/readprocessing/fastqc/raw/" ]; then
-  mytime=$(date "+%Y-%m-%d %H:%M:%S")
-  echo "$mytime Make directory ${moduledir}/readprocessing/fastqc/raw/"
-  mkdir ${moduledir}/readprocessing/fastqc/raw/
-fi
-
-if [ ! -d "${moduledir}/readprocessing/fastqc/processed/" ]; then
-  mytime=$(date "+%Y-%m-%d %H:%M:%S")
-  echo "$mytime Make directory ${moduledir}/readprocessing/fastqc/processed"
-  mkdir ${moduledir}/readprocessing/fastqc/processed/
-fi
-
 # Declare samples array
 declare -a samples
 
@@ -69,7 +42,7 @@ done < $experiment_file
 # Iterate over FASTQ files
 
 for i in "${samples[@]}"; do		
-			echo "Concatenate ${i}"
+			echo "Sample ${i}"
 			if [ -e "${moduledir}/readprocessing/${i}_1.fq.gz" ]; then
 		mytime=$(date "+%Y-%m-%d %H:%M:%S")
     		echo "$mytime FASTQ file link already created"
