@@ -29,6 +29,23 @@ Discard_dir="/scratch4/shess/Jenny/Scripts/"
 
 ####################################
 #
+# Setting up log file
+#
+###################################
+# Get date
+date=$(date "+%Y-%m-%d")
+
+# Define log file and redirect stdout and stderr to this file
+if [ ! -d "${moduledir}/Logs/" ]; then
+  mytime=$(date "+%Y-%m-%d %H:%M:%S")
+  echo "$mytime Make directory ${moduledir}/Logs/"
+  mkdir ${moduledir}/Logs/
+fi
+log_file="${moduledir}/Logs/log_readprocessing_$date"
+exec &> >(tee -a "$log_file")
+
+####################################
+#
 # Setting up samples array
 #
 ####################################
@@ -238,7 +255,9 @@ done
 source deactivate
 
 # Map reads to Mougeotia and Orciraptor known rRNA sequences, sort in aligned and unaligned
-# Create bowtie2 index for fasta file containing Mougeotia and Orciraptor rRNA sequences
+# Create bowtie2 index for fasta file containing Mougeotia and Orciraptor rRNA sequences from SILVA SSU r138.1 database: sequences from groups "Orciraptor" and "Mougeotia",
+# U replaced with T
+
 source activate bowtie2
 bowtie2-build ${moduledir}/ssu_T.fasta ${moduledir}/rRNA/ssu_T.fasta
 
