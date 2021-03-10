@@ -183,6 +183,7 @@ echo "## Discard"
 echo "###################"
 echo ""
 
+cd ${moduledir}/readprocessing/corrected/
 for i in "${samples[@]}"; do
   mytime=$(date "+%Y-%m-%d %H:%M:%S")
   echo ""
@@ -197,6 +198,7 @@ for i in "${samples[@]}"; do
   pigz ${moduledir}/readprocessing/corrected/unfixrm_${i}_2.cor.fq
   
 done
+cd ${moduledir}
 
 # Perform quality and adapter trimming with Trim-Galore!
 source activate trim-galore
