@@ -269,7 +269,7 @@ echo "## rRNA mapping bowtie2"
 echo "###################"
 echo ""
 echo -n "bowtie2 version: "
-fastqc -v
+bowtie2 -v
 echo ""
 
 for i in "${samples[@]}"; do
@@ -287,7 +287,10 @@ for i in "${samples[@]}"; do
   --un-conc-gz ${moduledir}/readprocessing/blacklist_rRNA/blacklist_rRNA_paired_unaligned_${i}.fq.gz \
   -x ${moduledir}/rRNA/ssu_T.fasta \
   -1 ${moduledir}/readprocessing/trim_galore/unfixrm_${i}_1.cor_val_1.fq.gz \
-  -2 ${moduledir}/readprocessing/trim_galore/unfixrm_${i}_2.cor_val_2.fq.gz
+  -2 ${moduledir}/readprocessing/trim_galore/unfixrm_${i}_2.cor_val_2.fq.gz \
+  2 > rRNA.SAM \
+  1 > rRNA_alignment_stats.txt
+  rm rRNA.SAM
   
 done
 
@@ -318,6 +321,9 @@ for i in "${samples[@]}"; do
   --un-conc-gz ${moduledir}/readprocessing/blacklist_NA/blacklist_NA_paired_unaligned_${i}.fq.gz \
   -x ${moduledir}/NA_ref/NA_ref.fasta \
   -1 ${moduledir}/readprocessing/blacklist_rRNA/blacklist_rRNA_paired_unaligned_${i}.fq.1.gz \
-  -2 ${moduledir}/readprocessing/blacklist_rRNA/blacklist_rRNA_paired_unaligned_${i}.fq.2.gz
+  -2 ${moduledir}/readprocessing/blacklist_rRNA/blacklist_rRNA_paired_unaligned_${i}.fq.2.gz \
+  2 > mougeotia.SAM \
+  1 > mougeotia_alignment_stats.txt
+  rm mougeotia.SAM
   
 done
