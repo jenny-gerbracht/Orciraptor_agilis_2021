@@ -269,7 +269,7 @@ echo "## rRNA mapping bowtie2"
 echo "###################"
 echo ""
 echo -n "bowtie2 version: "
-bowtie2 -v
+bowtie2 --version
 echo ""
 
 for i in "${samples[@]}"; do
@@ -305,7 +305,7 @@ echo "## Prey organism mapping bowtie2"
 echo "###################"
 echo ""
 echo -n "bowtie2 version: "
-fastqc -v
+bowtie2 --version
 echo ""
 
 for i in "${samples[@]}"; do
