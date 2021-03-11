@@ -261,7 +261,7 @@ source deactivate
 # U replaced with T
 
 source activate bowtie2
-bowtie2-build ${moduledir}/ssu_T.fasta ${moduledir}/rRNA/ssu_T.fasta
+bowtie2-build ${moduledir}/rRNA/ssu_T.fasta ${moduledir}/rRNA/ssu_T.fasta
 
 echo ""
 echo "###################"
