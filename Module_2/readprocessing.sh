@@ -250,8 +250,8 @@ for i in "${samples[@]}"; do
   -o ${moduledir}/readprocessing/fastqc/raw/ \
   ${moduledir}/readprocessing/${i}_1.fq.gz \
   ${moduledir}/readprocessing/${i}_2.fq.gz
-  mv ${moduledir}/readprocessing/trim_galore/unfixrm_${i}_R1.cor_val_1_fastqc* ${moduledir}/readprocessing/fastqc/processed/
-  mv ${moduledir}/readprocessing/trim_galore/unfixrm_${i}_R2.cor_val_2_fastqc* ${moduledir}/readprocessing/fastqc/processed/
+  mv ${moduledir}/readprocessing/trim_galore/unfixrm_${i}_1.cor_val_1_fastqc* ${moduledir}/readprocessing/fastqc/processed/
+  mv ${moduledir}/readprocessing/trim_galore/unfixrm_${i}_2.cor_val_2_fastqc* ${moduledir}/readprocessing/fastqc/processed/
   
 done
 source deactivate
