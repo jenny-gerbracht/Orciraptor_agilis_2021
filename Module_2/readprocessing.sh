@@ -287,9 +287,9 @@ for i in "${samples[@]}"; do
   --un-conc-gz ${moduledir}/readprocessing/blacklist_rRNA/blacklist_rRNA_paired_unaligned_${i}.fq.gz \
   -x ${moduledir}/rRNA/ssu_T.fasta \
   -1 ${moduledir}/readprocessing/trim_galore/unfixrm_${i}_1.cor_val_1.fq.gz \
-  -2 ${moduledir}/readprocessing/trim_galore/unfixrm_${i}_2.cor_val_2.fq.gz \
-  2 > rRNA.SAM \
-  1 > rRNA_alignment_stats.txt
+  -2 ${moduledir}/readprocessing/trim_galore/unfixrm_${i}_2.cor_val_2.fq.gz \ 
+  -S rRNA.SAM \
+  2>>rRNA_alignment_stats.txt
   rm rRNA.SAM
   
 done
@@ -322,8 +322,8 @@ for i in "${samples[@]}"; do
   -x ${moduledir}/NA_ref/NA_ref.fasta \
   -1 ${moduledir}/readprocessing/blacklist_rRNA/blacklist_rRNA_paired_unaligned_${i}.fq.1.gz \
   -2 ${moduledir}/readprocessing/blacklist_rRNA/blacklist_rRNA_paired_unaligned_${i}.fq.2.gz \
-  2 > mougeotia.SAM \
-  1 > mougeotia_alignment_stats.txt
+  -S mougeotia.SAM \
+  2>>mougeotia_alignment_stats.txt
   rm mougeotia.SAM
   
 done
