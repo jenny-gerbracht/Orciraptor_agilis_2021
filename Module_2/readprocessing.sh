@@ -5,7 +5,7 @@
 #$ -pe threaded 10
 
 # Performs the following steps: a) k-mer based error correction using Rcorrector, b) discarding unfixable read pairs, c) quality and adapter trimming with Trim Galore!,
-# d) read mapping and sorting to rRNA sequences of Orciraptor agilis and Mougeotia sp., e) read mapping and sorting to transcriptome of Mougeotia sp.
+# d) QC of raw vs processed reads with FastQC
 
 ####################################
 #
