@@ -10,13 +10,15 @@ Read processing and filtering, de novo transcriptome assembly, differential gene
 
 1) [MISSING, UPLOAD SRA!] Download Orciraptor agilis RNA-seq data
 2) Run symlinks.sh
-3) Run readprocessing.sh. Output are quality filtered and adapter trimmed reads that do not map to sequences from rRNA and/or Mougeotia sp.
+3) Run readprocessing.sh. Output are quality filtered and adapter trimmed reads.
+4) Run mapping.sh. Output are reads that do not map to sequences from rRNA and/or Mougeotia sp.
 
 ## Module 3: De novo transcriptome assembly, decontamination, ORF prediction
 
-1) Run assembly.sh 
-2) Run blastn search with transcriptome
-    -> Checked contigs with > 90% identity over a length of 100 nt, removed all bacterial, viral, ribosomal and algal contigs
+1) Run assembly.sh. Outout is de novo transcriptome assembly of Orciraptor agilis as a fasta.
+2) Run blastn search with this transcriptome
+    > Checked contigs with > 90% identity over a length of 100 nt, saved contig identifiers of all bacterial, viral, ribosomal and algal contigs in contaminants.txt
+    > Remove these sequences from transcriptome with seqkit.sh
 4) ORF prediction with transdecoder.sh (1 strand)
 
 ## Module 4: Functional annotation
