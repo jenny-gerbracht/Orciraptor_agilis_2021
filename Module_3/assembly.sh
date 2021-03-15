@@ -35,25 +35,26 @@ spades.py \
 --rna \
 --ss rf \
 --pe-1 1 ${mydir}/Module_2/readprocessing/blacklist_NA/blacklist_NA_paired_unaligned_V1S1.1.fq.gz \
---pe-1 2 /scratch4/shess/Jenny/201109_ORC_readprocessing/blacklist_NA/blacklist_NA_paired_unaligned_V1S2.1.fq.gz \
---pe-1 3 /scratch4/shess/Jenny/201109_ORC_readprocessing/blacklist_NA/blacklist_NA_paired_unaligned_V1S3.1.fq.gz \
---pe-1 4 /scratch4/shess/Jenny/201109_ORC_readprocessing/blacklist_NA/blacklist_NA_paired_unaligned_V1S4.1.fq.gz \
---pe-1 5 /scratch4/shess/Jenny/201109_ORC_readprocessing/blacklist_NA/blacklist_NA_paired_unaligned_V1S5.1.fq.gz \
---pe-1 6 /scratch4/shess/Jenny/201109_ORC_readprocessing/blacklist_NA/blacklist_NA_paired_unaligned_V1S6.1.fq.gz \
---pe-1 7 /scratch4/shess/Jenny/201109_ORC_readprocessing/blacklist_NA/blacklist_NA_paired_unaligned_V1S7.1.fq.gz \
---pe-1 8 /scratch4/shess/Jenny/201109_ORC_readprocessing/blacklist_NA/blacklist_NA_paired_unaligned_V1S8.1.fq.gz \
---pe-1 9 /scratch4/shess/Jenny/201109_ORC_readprocessing/blacklist_NA/blacklist_NA_paired_unaligned_V1S9.1.fq.gz \
---pe-2 1 /scratch4/shess/Jenny/201109_ORC_readprocessing/blacklist_NA/blacklist_NA_paired_unaligned_V1S1.2.fq.gz \
---pe-2 2 /scratch4/shess/Jenny/201109_ORC_readprocessing/blacklist_NA/blacklist_NA_paired_unaligned_V1S2.2.fq.gz \
---pe-2 3 /scratch4/shess/Jenny/201109_ORC_readprocessing/blacklist_NA/blacklist_NA_paired_unaligned_V1S3.2.fq.gz \
---pe-2 4 /scratch4/shess/Jenny/201109_ORC_readprocessing/blacklist_NA/blacklist_NA_paired_unaligned_V1S4.2.fq.gz \
---pe-2 5 /scratch4/shess/Jenny/201109_ORC_readprocessing/blacklist_NA/blacklist_NA_paired_unaligned_V1S5.2.fq.gz \
---pe-2 6 /scratch4/shess/Jenny/201109_ORC_readprocessing/blacklist_NA/blacklist_NA_paired_unaligned_V1S6.2.fq.gz \
---pe-2 7 /scratch4/shess/Jenny/201109_ORC_readprocessing/blacklist_NA/blacklist_NA_paired_unaligned_V1S7.2.fq.gz \
---pe-2 8 /scratch4/shess/Jenny/201109_ORC_readprocessing/blacklist_NA/blacklist_NA_paired_unaligned_V1S8.2.fq.gz \
---pe-2 9 /scratch4/shess/Jenny/201109_ORC_readprocessing/blacklist_NA/blacklist_NA_paired_unaligned_V1S9.2.fq.gz \
+--pe-1 2 ${mydir}/Module_2/readprocessing/blacklist_NA/blacklist_NA_paired_unaligned_V1S2.1.fq.gz \
+--pe-1 3 ${mydir}/Module_2/readprocessing/blacklist_NA/blacklist_NA_paired_unaligned_V1S3.1.fq.gz \
+--pe-1 4 ${mydir}/Module_2/readprocessing/blacklist_NA/blacklist_NA_paired_unaligned_V1S4.1.fq.gz \
+--pe-1 5 ${mydir}/Module_2/readprocessing/blacklist_NA/blacklist_NA_paired_unaligned_V1S5.1.fq.gz \
+--pe-1 6 ${mydir}/Module_2/readprocessing/blacklist_NA/blacklist_NA_paired_unaligned_V1S6.1.fq.gz \
+--pe-1 7 ${mydir}/Module_2/readprocessing/blacklist_NA/blacklist_NA_paired_unaligned_V1S7.1.fq.gz \
+--pe-1 8 ${mydir}/Module_2/readprocessing/blacklist_NA/blacklist_NA_paired_unaligned_V1S8.1.fq.gz \
+--pe-1 9 ${mydir}/Module_2/readprocessing/blacklist_NA/blacklist_NA_paired_unaligned_V1S9.1.fq.gz \
+--pe-2 1 ${mydir}/Module_2/readprocessing/blacklist_NA/blacklist_NA_paired_unaligned_V1S1.2.fq.gz \
+--pe-2 2 ${mydir}/Module_2/readprocessing/blacklist_NA/blacklist_NA_paired_unaligned_V1S2.2.fq.gz \
+--pe-2 3 ${mydir}/Module_2/readprocessing/blacklist_NA/blacklist_NA_paired_unaligned_V1S3.2.fq.gz \
+--pe-2 4 ${mydir}/Module_2/readprocessing/blacklist_NA/blacklist_NA_paired_unaligned_V1S4.2.fq.gz \
+--pe-2 5 ${mydir}/Module_2/readprocessing/blacklist_NA/blacklist_NA_paired_unaligned_V1S5.2.fq.gz \
+--pe-2 6 ${mydir}/Module_2/readprocessing/blacklist_NA/blacklist_NA_paired_unaligned_V1S6.2.fq.gz \
+--pe-2 7 ${mydir}/Module_2/readprocessing/blacklist_NA/blacklist_NA_paired_unaligned_V1S7.2.fq.gz \
+--pe-2 8 ${mydir}/Module_2/readprocessing/blacklist_NA/blacklist_NA_paired_unaligned_V1S8.2.fq.gz \
+--pe-2 9 ${mydir}/Module_2/readprocessing/blacklist_NA/blacklist_NA_paired_unaligned_V1S9.2.fq.gz \
 -o orciraptor_rnaspades
 source deactivate
+
 source activate trinity
-TrinityStats.pl ${moduledir}/NA_rnaspades/transcripts.fasta > NA_assembly.txt
+TrinityStats.pl ${moduledir}/orciraptor_rnaspades/transcripts.fasta > orciraptor_assembly.txt
 source deactivate
