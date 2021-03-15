@@ -143,5 +143,18 @@ for i in "${samples[@]}"; do
   -2 ${moduledir}/readprocessing/blacklist_rRNA/blacklist_rRNA_paired_unaligned_${i}.fq.2.gz \
   --met-file bowtie2_alignment-metrics_mougeotia.txt | samtools view -bS - > mougeotia.BAM ) 3>&1 1>&2 2>&3 | tee mougeotia.stderr.log 
   rm mougeotia.BAM
+
+done
+
+# Rename output reads that are going to be used by the assembler
+
+for i in "${samples[@]}"; do
+  mytime=$(date "+%Y-%m-%d %H:%M:%S")
+  echo ""
+  echo "$mytime Rename sample ${i}"
+  echo ""
   
+  mv ${moduledir}/readprocessing/blacklist_NA/blacklist_NA_paired_unaligned_${i}.fq.1.gz ${moduledir}/readprocessing/blacklist_NA/blacklist_NA_paired_unaligned_${i}.1.fq.gz
+  mv ${moduledir}/readprocessing/blacklist_NA/blacklist_NA_paired_unaligned_${i}.fq.2.gz ${moduledir}/readprocessing/blacklist_NA/blacklist_NA_paired_unaligned_${i}.2.fq.gz
+ 
 done
