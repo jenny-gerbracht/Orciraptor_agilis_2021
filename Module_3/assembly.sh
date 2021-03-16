@@ -2,7 +2,7 @@
 #$ -S /bin/bash
 . /etc/profile
 #$ -cwd
-#$ -pe threaded 10
+#$ -pe threaded 16
 
 # Define paths to working directory locations
 mydir="/path/to/wd"
