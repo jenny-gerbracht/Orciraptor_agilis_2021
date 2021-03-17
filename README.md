@@ -16,7 +16,7 @@ Read processing and filtering, de novo transcriptome assembly, differential gene
 ## Module 3: De novo transcriptome assembly, decontamination, ORF prediction
 
 1) Run assembly.sh. to assemble the transcriptome from processed reads of all libraries. Outout is de novo transcriptome assembly of Orciraptor agilis as a fasta.
-2) Run blastn search with this transcriptome
+2) Run blastn search with this transcriptome (nt database v5 updated on 2021-03-10)
     > Checked contigs with > 90% identity over a length of 100 nt, saved contig identifiers of all bacterial, viral, ribosomal and algal contigs in contaminants.txt
     > Remove these sequences from transcriptome with seqkit.sh
 4) ORF prediction with transdecoder.sh (1 strand)
