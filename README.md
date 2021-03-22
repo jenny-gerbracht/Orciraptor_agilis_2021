@@ -30,9 +30,9 @@ perl removesmalls.pl 200 ${moduledir}/orciraptor_rnaspades/transcripts.fasta > o
 ? Trinotate?
 CAZY -> how to parse
 
-## Module 4: Differential gene expression analysis
+## Module 5: Differential gene expression analysis
 1) Mapping and counting
 2) R script with DESeq2 and Figures
 
-## Module 5: Assembly summary statistics
+## Module 6: Assembly summary statistics
 1) number of Genes, isoforms, ORFs, 
