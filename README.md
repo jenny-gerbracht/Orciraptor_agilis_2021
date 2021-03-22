@@ -21,8 +21,8 @@ Read processing and filtering, de novo transcriptome assembly, differential gene
 perl removesmalls.pl 200 ${moduledir}/orciraptor_rnaspades/transcripts.fasta > orciraptor_200.fasta
 ```
 3. Run blastn search with this transcriptome (nt database v5 updated on 2021-03-10)
-    ⋅⋅* Checked contigs with > 95% identity over a length of minimum 100 nt, saved contig identifiers of all bacterial, viral, ribosomal and algal contigs in contaminants.txt
-    ⋅⋅* Remove these sequences from transcriptome with seqkit.sh
+  * Checked contigs with > 95% identity over a length of minimum 100 nt, saved contig identifiers of all bacterial, viral, ribosomal and algal contigs in contaminants.txt
+  * Remove these sequences from transcriptome with seqkit.sh
 4. ORF prediction with transdecoder.sh (1 strand)
 
 ## Module 4: Functional annotation
