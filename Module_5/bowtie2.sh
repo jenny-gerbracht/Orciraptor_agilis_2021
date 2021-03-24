@@ -112,6 +112,6 @@ for i in "${samples[@]}"; do
   -x ${moduledir}/BAM/orciraptor_200_filtered.fasta \
   -1 ${mydir}/Module_2/readprocessing/blacklist_NA/blacklist_NA_paired_unaligned_${i}.1.fq.gz \
   -2 ${mydir}/Module_2/readprocessing/blacklist_NA/blacklist_NA_paired_unaligned_${i}.2.fq.gz \
-  --met-file bowtie2_alignment-metrics.txt | samtools view -bS - > ${i}.BAM ) 3>&1 1>&2 2>&3 | tee stderr.log 
+  --met-file bowtie2_alignment-metrics.txt | samtools view -bS - > ./BAM/${i}.BAM ) 3>&1 1>&2 2>&3 | tee stderr.log 
   
 done
