@@ -16,7 +16,7 @@ Read processing and filtering, *de novo* transcriptome assembly, differential ge
 ## Module 3: *De novo* transcriptome assembly, decontamination, ORF prediction
 
 1. Run assembly.sh to assemble the transcriptome from processed reads of all libraries. Output is *de novo* transcriptome assembly of *Orciraptor agilis* as a fasta.
-2. Filter transcriptome for contigs larger than 200 nt with removesmalls.pl. Usage in folder Module_3:
+2. Filter transcriptome for contigs larger than 200 nt with removesmalls.pl. Usage in folder Module_3: [REPLACE WITH SOMETHING OWN]
 ```
 perl removesmalls.pl 200 ${moduledir}/orciraptor_rnaspades/transcripts.fasta > orciraptor_200.fasta
 ```
