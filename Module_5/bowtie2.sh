@@ -85,6 +85,12 @@ if [ ! -d "${moduledir}/BAM/" ]; then
   mkdir ${moduledir}/BAM/
 fi
 
+if [ ! -d "${moduledir}/salmon/" ]; then
+  mytime=$(date "+%Y-%m-%d %H:%M:%S")
+  echo "$mytime Make directory ${moduledir}/salmon/"
+  mkdir ${moduledir}/salmon/
+fi
+
 # Map processed reads to filtered Orciraptor transcriptome
 # Create bowtie2 index for Orciraptor transcriptome
 
@@ -112,6 +118,38 @@ for i in "${samples[@]}"; do
   -x ${moduledir}/BAM/orciraptor_200_filtered.fasta \
   -1 ${mydir}/Module_2/readprocessing/blacklist_NA/blacklist_NA_paired_unaligned_${i}.1.fq.gz \
   -2 ${mydir}/Module_2/readprocessing/blacklist_NA/blacklist_NA_paired_unaligned_${i}.2.fq.gz \
-  --met-file bowtie2_alignment-metrics.txt | samtools view -bS - > ./BAM/${i}.BAM ) 3>&1 1>&2 2>&3 | tee stderr.log 
+  --met-file bowtie2_alignment-metrics.txt | samtools view -bS - > ${moduledir}/BAM/${i}.BAM ) 3>&1 1>&2 2>&3 | tee stderr.log 
   
 done
+source deactivate
+
+# Quantifying reads with salmon in alignment-based mode
+
+source activate salmon
+
+echo ""
+echo "###################"
+echo "## Salmon"
+echo "###################"
+echo ""
+echo -n "salmon version: "
+salmon --version
+echo ""
+
+for i in "${samples[@]}"; do
+  mytime=$(date "+%Y-%m-%d %H:%M:%S")
+  echo ""
+  echo "$mytime Start counting of sample ${i}"
+  echo ""
+  
+  salmon quant \
+  -t ${mydir}/Module_3/orciraptor_200_filtered.fasta \
+  -p 10 \
+  -l A \
+  -a ${moduledir}/BAM/${i}.BAM \
+  -o ${moduledir}/salmon/${i}.salmon_quant
+  
+done
+
+source deactivate 
+
