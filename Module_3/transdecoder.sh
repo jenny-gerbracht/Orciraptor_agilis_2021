@@ -4,6 +4,7 @@
 #$ -cwd
 
 # Define paths to read and working directory locations
+mydir="/path/to/wd"
 moduledir="${mydir}/Module_3"
 
 # Log file
