@@ -23,16 +23,25 @@ perl removesmalls.pl 200 ${moduledir}/orciraptor_rnaspades/transcripts.fasta > o
 3. Run blastn search with this transcriptome (nt database v5 updated on 2021-03-10)
   * Checked contigs with > 95% identity over a length of minimum 100 nt, saved contig identifiers of all bacterial, viral, ribosomal and algal contigs in contaminants.txt
   * Remove these sequences from transcriptome with seqkit.sh
-4. ORF prediction with transdecoder.sh (1 strand)
+4. ORF prediction with transdecoder.sh
+5. Rename ORFs to pattern "gx_iY.pz" (gene, isoform, peptide) with rename_transdecoder.py. Usage in folder Module_3/transdecoder: Output is "orciraptor_transdecoder.pep_renamed.fasta".
+```
+python rename_transdecoder.py orciraptor_200_filtered.fasta.transdecoder.pep
+```
 
 ## Module 4: Functional annotation
-? entap ?
-? Trinotate?
-CAZY -> how to parse
+eggnog-mapper in diamond and hmm mode (use hmm annotation without diamond)
+interproscan
+CAZY, parse with script from dbcan
+MEROPS
 
 ## Module 5: Differential gene expression analysis
 1) Mapping and counting
-2) R script with DESeq2 and Figures
+2) R script with DESeq2
+3) Output table with parsed functional annotation and expression info
+4) Generate Figures 
 
 ## Module 6: Assembly summary statistics
-1) number of Genes, isoforms, ORFs, 
+1) number of Genes, isoforms, ORFs (status), Ex90 
+
+## Module 7: Supertranscripts
