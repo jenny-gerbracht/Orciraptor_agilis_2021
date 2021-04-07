@@ -36,8 +36,8 @@ CAZY, parse with script from dbcan
 MEROPS
 
 ## Module 5: Differential gene expression analysis
-1) Mapping and counting
-2) R script with DESeq2
+1) Mapping the processed reads back to the newly generated transcriptome with bowtie2 and counting with salmon in alignment-mode (bowtie2.sh).
+2) Perform 
 3) Output table with parsed functional annotation and expression info
 4) Generate Figures 
 
