@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Define paths to read and working directory locations
+# Define paths to working directory locations
 mydir="/path/to/wd"
 moduledir="${mydir}/Module_4"
 
