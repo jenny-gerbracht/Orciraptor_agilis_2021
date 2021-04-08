@@ -28,7 +28,7 @@ echo "###################"
 echo ""
 
 python3 ${cazy_dir}/run_dbcan.py \
-../Module_3/transdecoder/orciraptor_transdecoder.pep_renamed.fasta \
+${mydir}/Module_3/transdecoder/orciraptor_transdecoder.pep_renamed.fasta \
 protein \
 --db_dir ${cazy_dir}/db \
 --dbCANFile dbCAN-HMMdb-V9.txt \
