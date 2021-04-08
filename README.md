@@ -29,7 +29,7 @@ perl removesmalls.pl 200 ${moduledir}/orciraptor_rnaspades/transcripts.fasta > o
   * Remove ORFs with a > 95% identity over a length of 150 aa from Orciraptor predicted proteome: seqkit_NA.sh
 6. Rename ORFs to pattern "gx_iY.pz" (gene, isoform, peptide) with rename_transdecoder.py. Usage in folder Module_3/transdecoder: Output is "orciraptor_transdecoder.pep_renamed.fasta".
 ```
-python rename_transdecoder.py orciraptor_200_filtered.fasta.transdecoder.pep
+python rename_transdecoder.py orciraptor_200_filtered2.fasta.transdecoder.pep
 ```
 
 ## Module 4: Functional annotation
