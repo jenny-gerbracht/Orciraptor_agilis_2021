@@ -34,10 +34,10 @@ echo "## eggnog-mapper"
 echo "###################"
 echo ""
 
-python ${mydir}/emapper.py \
+python ${eggnog_dir}/emapper.py \
 -i ${mydir}/Module_3/transdecoder/orciraptor_transdecoder.pep_renamed.fasta \
 --output orciraptor_diamond \
---output_dir ${moduledir}/eggnog/
+--output_dir ${moduledir}/eggnog/ \
 -m diamond \
 --report_orthologs \
 --pfam_transfer best_og \
@@ -45,10 +45,10 @@ python ${mydir}/emapper.py \
 --cpu 10 \
 --data_dir /srv/Jenny/eggnog-db/
 
-python ${mydir}/emapper.py \
+python ${eggnog_dir}/emapper.py \
 -i ${mydir}/Module_3/transdecoder/orciraptor_transdecoder.pep_renamed.fasta \
 --output orciraptor_hmm \
---output_dir ${moduledir}/eggnog/
+--output_dir ${moduledir}/eggnog/ \
 -m hmmer \
 -d Eukaryota \
 --report_orthologs \
