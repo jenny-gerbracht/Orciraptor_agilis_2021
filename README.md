@@ -5,6 +5,7 @@ Read processing and filtering, *de novo* transcriptome assembly, differential ge
 
 1. [MISSING, UPLOAD SRA!] Download of *Mougeotia* sp. RNA-seq data 
 2. Run readprocessing_and_assembly.sh, output is *de novo* transcriptome assembly of *Mougeotia* sp.
+3. Predict ORFs to use later for decontamination: transdecoder.sh
 
 ## Module 2: Read processing of *Orciraptor agilis*
 
@@ -20,11 +21,13 @@ Read processing and filtering, *de novo* transcriptome assembly, differential ge
 ```
 perl removesmalls.pl 200 ${moduledir}/orciraptor_rnaspades/transcripts.fasta > orciraptor_200.fasta
 ```
-3. Run blastn search with this transcriptome (nt database v5 updated on 2021-03-10)
+3. Run blastn search with this transcriptome (nt database v5 updated on 2021-03-10): blastn.sh
   * Checked contigs with > 95% identity over a length of minimum 100 nt, saved contig identifiers of all bacterial, viral, ribosomal and algal contigs in contaminants.txt
   * Remove these sequences from transcriptome with seqkit.sh
 4. ORF prediction with transdecoder.sh
-5. Rename ORFs to pattern "gx_iY.pz" (gene, isoform, peptide) with rename_transdecoder.py. Usage in folder Module_3/transdecoder: Output is "orciraptor_transdecoder.pep_renamed.fasta".
+5. Run blastp search of Orciraptor ORFs against Mougeotia predicted ORFs.  
+  * Remove ORFs with a > 95% identity over a length of 150 aa from Orciraptor predicted proteome: seqkit_NA.sh
+6. Rename ORFs to pattern "gx_iY.pz" (gene, isoform, peptide) with rename_transdecoder.py. Usage in folder Module_3/transdecoder: Output is "orciraptor_transdecoder.pep_renamed.fasta".
 ```
 python rename_transdecoder.py orciraptor_200_filtered.fasta.transdecoder.pep
 ```
