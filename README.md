@@ -30,7 +30,7 @@ python rename_transdecoder.py orciraptor_200_filtered.fasta.transdecoder.pep
 ```
 
 ## Module 4: Functional annotation
-1. eggnog-mapper in diamond and hmm mode (use hmm annotation without diamond)
+1. Run eggnog-mapper in diamond and hmm mode: eggnog.sh. Parse so that hmm annotation is used if there is no diamond annotaiton: eggnog_parse.R. 
 2. interproscan
 3. Annotation of carbohydrate-active enzymes (CAZymes) with with dbcan2 in HMM mode (database dbCAN-HMMdb-V9): cazy.sh
 4. Annotation of peptidases with MEROPS database (database merops_scan.lib updated on 2019-05-19 from https://ftp.ebi.ac.uk/pub/databases/merops/current_release/): merops.sh
