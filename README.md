@@ -27,7 +27,7 @@ perl removesmalls.pl 200 ${moduledir}/orciraptor_rnaspades/transcripts.fasta > o
 4. ORF prediction with transdecoder.sh
 5. Run blastp search of *Orciraptor* ORFs against *Mougeotia* predicted ORFs: blastp.sh  
   * Remove ORFs with a > 95% identity over a length of 150 aa from *Orciraptor* predicted proteome: seqkit_NA.sh
-6. Rename ORFs to pattern "gx_iY.pz" (gene, isoform, peptide) with rename_transdecoder.py. Usage in folder Module_3/transdecoder: Output is "orciraptor_transdecoder.pep_renamed.fasta".
+6. Rename ORFs to pattern "gx_iy.pz" (gene, isoform, peptide) with rename_transdecoder.py. Usage in folder Module_3/transdecoder: Output is "orciraptor_transdecoder.pep_renamed.fasta".
 ```
 python rename_transdecoder.py orciraptor_200_filtered2.fasta.transdecoder.pep
 ```
