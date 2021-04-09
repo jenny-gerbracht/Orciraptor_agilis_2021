@@ -35,8 +35,9 @@ python rename_transdecoder.py orciraptor_200_filtered2.fasta.transdecoder.pep
 ## Module 4: Functional annotation
 1. Run eggnog-mapper in diamond and hmm mode: eggnog.sh. Parse so that hmm annotation is used if there is no diamond annotation: eggnog_parse.R. 
 2. Run InterProScan using interproscan.sh
-3. Annotation of carbohydrate-active enzymes (CAZymes) with with dbcan2 in HMM mode (database dbCAN-HMMdb-V9): cazy.sh
-4. Annotation of peptidases with MEROPS database (database merops_scan.lib updated on 2019-05-19 from https://ftp.ebi.ac.uk/pub/databases/merops/current_release/): merops.sh
+3. Run a Diamond blastp search vs nr database (nr database downloaded in fasta format from https://ftp.ncbi.nlm.nih.gov/blast/db/FASTA/ on 2021-03-21 and formated as diamond db): diamond.sh
+4. Annotation of carbohydrate-active enzymes (CAZymes) with with dbcan2 in HMM mode (database dbCAN-HMMdb-V9): cazy.sh
+5. Annotation of peptidases with MEROPS database (database merops_scan.lib updated on 2019-05-19 from https://ftp.ebi.ac.uk/pub/databases/merops/current_release/): merops.sh
 
 ## Module 5: Differential gene expression analysis
 1) Mapping the processed reads back to the newly generated transcriptome with bowtie2 and counting with salmon in alignment-mode (bowtie2.sh).
