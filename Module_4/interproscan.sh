@@ -5,7 +5,7 @@ mydir="/path/to/wd"
 moduledir="${mydir}/Module_4"
 
 # Define paths to scripts
-interproscan_dir="/home/jenny/interproscan/interproscan-5.48-83.0"
+interproscan_dir="/home/jenny/interproscan/interproscan-5.50-84.0"
 
 # Log file
 # Get date
