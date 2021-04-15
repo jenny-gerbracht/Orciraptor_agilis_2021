@@ -13,7 +13,7 @@ fi
 log_file="${moduledir}/Logs/log_genome_$date"
 exec &> >(tee -a "$log_file")
 
-# Generate SuperTranscripts with Lace
+# Generate Genome for STAR mapping
 echo ""
 echo "###################"
 echo "## Generate STAR genome"
