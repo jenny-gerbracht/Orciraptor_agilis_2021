@@ -26,5 +26,5 @@ echo ""
 ${lace_dir}/Lace_run.py \
 --cores 10 \
 --alternate \
-${mydir}/Module_2/orciraptor_200_filtered.fasta \
+${mydir}/Module_3/orciraptor_200_filtered.fasta \
 ${mydir}/Module_5/gene_trans_map
