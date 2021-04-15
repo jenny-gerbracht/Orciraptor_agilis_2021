@@ -24,9 +24,9 @@ STAR \
 --runThreadN 10 \
 --genomeSAindexNbases 11 \
 --runMode genomeGenerate \
---genomeDir ${module_dir}/genome \
---genomeFastaFiles  ${module_dir}/SuperDuper.fasta \
---sjdbGTFfile ${module_dir}/SuperDuperTrans.gff \
+--genomeDir ${moduledir}/genome \
+--genomeFastaFiles  ${moduledir}/SuperDuper.fasta \
+--sjdbGTFfile ${moduledir}/SuperDuperTrans.gff \
 --sjdbGTFfeatureExon exon \
 --sjdbGTFtagExonParentTranscript trans_id \
 --sjdbGTFtagExonParentGene gene_id
