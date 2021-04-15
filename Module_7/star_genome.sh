@@ -13,6 +13,13 @@ fi
 log_file="${moduledir}/Logs/log_genome_$date"
 exec &> >(tee -a "$log_file")
 
+# Create necessary folders
+if [ ! -d "${moduledir}/genome/" ]; then
+  mytime=$(date "+%Y-%m-%d %H:%M:%S")
+  echo "${mytime} Make directory ${moduledir}/genome/"
+  mkdir ${moduledir}/genome/
+fi
+
 # Generate SuperTranscripts with Lace
 echo ""
 echo "###################"
