@@ -49,3 +49,7 @@ python rename_transdecoder.py orciraptor_200_filtered2.fasta.transdecoder.pep
 1) number of Genes, isoforms, ORFs (status), Ex90 
 
 ## Module 7: Supertranscripts
+1) Run Lace to generate supertranscript fasta: lace.sh
+2) Generate genome index of supertranscriptome for STAR mapping, perform STAR mapping of BAM files
+3) Run stringtie and merge the gtfs
+4) Convert gtf to fasta and predict ORFs
