@@ -64,8 +64,7 @@ done < $experiment_file
 declare -a cond
 
 # Load experiment file, parse for conditions and save unique conditions into array
-let i=1
-cond[0]="control"
+let i=0
 while read -r f1 f2; do
   if [[ " ${cond[*]} " == *"$f2"* ]];then
   continue
