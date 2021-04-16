@@ -90,4 +90,5 @@ for i in "${samples[@]}"; do
   ${moduledir}/${i}Aligned.sortedByCoord.out.bam \
   -v \
   -o ${i}.gtf
+  echo "${moduledir}/${i}.gtf" | tee -a gtflist.txt
 done
