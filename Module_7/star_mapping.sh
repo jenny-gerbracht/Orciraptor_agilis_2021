@@ -3,6 +3,7 @@
 # Define paths to working directory locations
 mydir="/path/to/wd"
 moduledir="${mydir}/Module_7"
+readdir="/path/to/reads"
 experiment_file="${moduledir}/experiment.txt"
 
 ####################################
@@ -88,12 +89,11 @@ for i in "${samples[@]}"; do
   STAR \
   --runThreadN 15 \
   --genomeDir ${moduledir}/genome \
-  --readFilesIn ${readdir}/blacklist_NA_paired_unaligned_V1S1.1.fq.gz ${readdir}/blacklist_NA_paired_unaligned_V1S1.2.fq.gz \
+  --readFilesIn ${readdir}/blacklist_NA_paired_unaligned_${i}.1.fq.gz ${readdir}/blacklist_NA_paired_unaligned_${i}.2.fq.gz \
   --readFilesCommand zcat \
   --twopassMode Basic \
   --outSAMattributes NH HI AS nM NM MD jM jI XS \
   --outSAMtype BAM SortedByCoordinate \
   --outFileNamePrefix ${i}
-
 
 done
