@@ -92,3 +92,12 @@ for i in "${samples[@]}"; do
   -o ${i}.gtf
   echo "${moduledir}/${i}.gtf" | tee -a gtflist.txt
 done
+
+stringtie \
+--merge  \
+-p 15 \
+-f 0.05 \
+-m 200 \
+-o ${moduledir}/stringtie_merged.gtf \
+-v \
+${moduledir}/gtflist.txt
