@@ -72,7 +72,6 @@ fi
 log_file="${moduledir}/Logs/log_mapping_$date"
 exec &> >(tee -a "$log_file")
 
-# Generate Genome for STAR mapping
 echo ""
 echo "###################"
 echo "## STAR mapping"
