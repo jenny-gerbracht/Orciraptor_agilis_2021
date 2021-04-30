@@ -5,6 +5,15 @@ mydir="/path/to/wd"
 moduledir="${mydir}/Module_7"
 experiment_file="${moduledir}/experiment.txt"
 
+# Define log file and redirect stdout and stderr to this file
+if [ ! -d "${moduledir}/Logs/" ]; then
+  mytime=$(date "+%Y-%m-%d %H:%M:%S")
+  echo "${mytime} Make directory ${moduledir}/Logs/"
+  mkdir ${moduledir}/Logs/
+fi
+log_file="${moduledir}/Logs/log_stringtie_$date"
+exec &> >(tee -a "$log_file")
+
 ####################################
 #
 # Setting up samples array
@@ -61,15 +70,6 @@ arr_length="$((${#cond[@]}-1))"
 for i in $( eval echo {0..${arr_length}} );do
   echo -e "cond${i} \t ${cond[i]} \t $(eval echo \${cond$i[*]})"
 done
-
-# Define log file and redirect stdout and stderr to this file
-if [ ! -d "${moduledir}/Logs/" ]; then
-  mytime=$(date "+%Y-%m-%d %H:%M:%S")
-  echo "${mytime} Make directory ${moduledir}/Logs/"
-  mkdir ${moduledir}/Logs/
-fi
-log_file="${moduledir}/Logs/log_stringtie_$date"
-exec &> >(tee -a "$log_file")
 
 # Build annotation from mapping
 echo ""
