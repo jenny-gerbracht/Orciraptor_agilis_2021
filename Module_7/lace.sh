@@ -7,6 +7,10 @@ moduledir="${mydir}/Module_7"
 # Define paths to scripts
 lace_dir="/home/jenny/Lace-1.14.1/Lace/"
 
+# Log file
+# Get date
+date=$(date "+%Y-%m-%d")
+
 # Define log file and redirect stdout and stderr to this file
 if [ ! -d "${moduledir}/Logs/" ]; then
   mytime=$(date "+%Y-%m-%d %H:%M:%S")
