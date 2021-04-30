@@ -4,6 +4,10 @@
 mydir="/path/to/wd"
 moduledir="${mydir}/Module_7"
 
+# Log file
+# Get date
+date=$(date "+%Y-%m-%d")
+
 # Define log file and redirect stdout and stderr to this file
 if [ ! -d "${moduledir}/Logs/" ]; then
   mytime=$(date "+%Y-%m-%d %H:%M:%S")
