@@ -89,6 +89,7 @@ for i in "${samples[@]}"; do
   echo ""
 
   stringtie \
+  --rf \
   -p 15 \
   --conservative \
   ${moduledir}/${i}Aligned.sortedByCoord.out.bam \
