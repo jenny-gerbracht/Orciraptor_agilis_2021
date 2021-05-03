@@ -84,7 +84,7 @@ echo ""
 for i in "${samples[@]}"; do
   mytime=$(date "+%Y-%m-%d %H:%M:%S")
   echo ""
-  echo "$mytime Start STAR mapping of sample ${i}"
+  echo "$mytime Start indexing of sample ${i}"
   echo ""
 
   samtools index ${i}Aligned.sortedByCoord.out.bam
