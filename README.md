@@ -52,4 +52,4 @@ python rename_transdecoder.py orciraptor_200_filtered2.fasta.transdecoder.pep
 1) Run Lace to generate supertranscript fasta: lace.sh
 2) Generate genome index of supertranscriptome for STAR mapping (star_genome.sh), perform STAR mapping of processed reads (star_mapping.sh), index the bam files (index.sh)
 3) Run stringtie and merge the gtfs (stringtie.sh)
-4) Convert gtf to fasta and predict ORFs (stringtie_fasta.sh and stringtie_transdecooder.sh)
+4) Convert gtf to fasta and predict ORFs (stringtie_fasta.sh and stringtie_transdecoder.sh)
