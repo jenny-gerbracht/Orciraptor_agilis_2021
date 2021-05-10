@@ -3,11 +3,14 @@
 . /etc/profile
 #$ -cwd
 
-# Define paths to read and working directory locations
-mydir="/path/to/wd"
+source ../config.txt
 moduledir="${mydir}/Module_7"
 
-# Log file
+####################################
+#
+# Setting up log file
+#
+###################################
 # Get date
 date=$(date "+%Y-%m-%d")
 
@@ -20,7 +23,12 @@ fi
 log_file="${moduledir}/Logs/log_transdecoder_$date"
 exec &> >(tee -a "$log_file")
 
-# Create necessary folders
+####################################
+#
+# Make folders
+#
+####################################
+
 if [ ! -d "${moduledir}/transdecoder/" ]; then
   mytime=$(date "+%Y-%m-%d %H:%M:%S")
   echo "$mytime Make directory ${moduledir}/transdecoder/"
