@@ -3,13 +3,14 @@
 . /etc/profile
 #$ -cwd
 
-# Define paths to read and working directory locations
-readdir="/path/to/reads"
-mydir="/path/to/wd"
+source ../config.txt
 moduledir="${mydir}/Module_2"
-experiment_file="experiment.txt"
 
-# Log file
+####################################
+#
+# Setting up log file
+#
+###################################
 # Get date
 date=$(date "+%Y-%m-%d")
 
@@ -22,13 +23,11 @@ fi
 log_file="${moduledir}/Logs/log_symlinks_$date"
 exec &> >(tee -a "$log_file")
 
-# Create necessary folders
-if [ ! -d "${moduledir}/readprocessing/" ]; then
-  mytime=$(date "+%Y-%m-%d %H:%M:%S")
-  echo "$mytime Make directory ${moduledir}/readprocessing/"
-  mkdir ${moduledir}/readprocessing/
-fi
-
+####################################
+#
+# Setting up samples array
+#
+####################################
 # Declare samples array
 declare -a samples
 
@@ -38,6 +37,18 @@ while read -r f1 f2; do
 	samples[p]="${f1}"
 	((++p))	
 done < $experiment_file
+
+####################################
+#
+# Make folders
+#
+####################################
+
+if [ ! -d "${moduledir}/readprocessing/" ]; then
+  mytime=$(date "+%Y-%m-%d %H:%M:%S")
+  echo "$mytime Make directory ${moduledir}/readprocessing/"
+  mkdir ${moduledir}/readprocessing/
+fi
 
 # Iterate over FASTQ files
 
