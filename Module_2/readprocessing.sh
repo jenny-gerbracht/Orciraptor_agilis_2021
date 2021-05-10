@@ -32,7 +32,6 @@ exec &> >(tee -a "$log_file")
 # Setting up samples array
 #
 ####################################
-
 # Declare samples array
 declare -a samples
 
