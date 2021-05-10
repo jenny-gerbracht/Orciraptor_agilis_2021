@@ -1,7 +1,11 @@
 # Paths to working directory, experiment file and directories that contain scripts
 
 mydir="/path/to/wd"
+readdir_prey="/path/to/reads"
 readdir="/path/to/reads"
 experiment_file="${mydir}/experiment.txt"
 Rcorrector_dir="/path/to/rcorrector/"
 Discard_dir="/path/to/unfixrm"
+Cazy_dir="/path/to/cazy"
+Eggnog_dir="path/to/eggnog"
+Interproscan_dir="/path/to/interproscan"
