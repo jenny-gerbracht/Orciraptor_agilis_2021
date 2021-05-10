@@ -1,13 +1,16 @@
 #!/bin/bash
 
-# Define paths to working directory locations
-mydir="/path/to/wd"
+source ../config.txt
 moduledir="${mydir}/Module_4"
 
 # Define paths to scripts
-interproscan_dir="/home/jenny/interproscan/interproscan-5.50-84.0"
+Interproscan_dir="/home/jenny/interproscan/interproscan-5.50-84.0"
 
-# Log file
+####################################
+#
+# Setting up log file
+#
+###################################
 # Get date
 date=$(date "+%Y-%m-%d")
 
@@ -20,7 +23,12 @@ fi
 log_file="${moduledir}/Logs/log_interproscan_$date"
 exec &> >(tee -a "$log_file")
 
-# Create necessary folders
+####################################
+#
+# Make folders
+#
+####################################
+
 if [ ! -d "${moduledir}/interproscan/" ]; then
   mytime=$(date "+%Y-%m-%d %H:%M:%S")
   echo "${mytime} Make directory ${moduledir}/interproscan/"
@@ -38,7 +46,7 @@ sed 's/*//g' ${mydir}/Module_3/transdecoder/orciraptor_transdecoder.pep_renamed.
 > ${mydir}/Module_3/transdecoder/orciraptor_transdecoder.pep_renamed_nostop.fasta
 
 # Run analysis
-${interproscan_dir}/interproscan.sh \
+${Interproscan_dir}/interproscan.sh \
 --input ${mydir}/Module_3/transdecoder/orciraptor_transdecoder.pep_renamed.fasta \
 --iprlookup -pa \
 --output-dir ${moduledir}/interproscan \
