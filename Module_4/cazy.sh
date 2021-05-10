@@ -1,13 +1,14 @@
 #!/bin/bash
 
 # Define paths to working directory locations
-mydir="/path/to/wd"
+source ../config.txt
 moduledir="${mydir}/Module_4"
 
-# Define paths to scripts
-cazy_dir="/srv/Jenny/CAZy_v9/run_dbcan/"
-
-# Log file
+####################################
+#
+# Setting up log file
+#
+###################################
 # Get date
 date=$(date "+%Y-%m-%d")
 
@@ -27,10 +28,10 @@ echo "## dbcan2"
 echo "###################"
 echo ""
 
-python3 ${cazy_dir}/run_dbcan.py \
+python3 ${Cazy_dir}/run_dbcan.py \
 ${mydir}/Module_3/transdecoder/orciraptor_transdecoder.pep_renamed.fasta \
 protein \
---db_dir ${cazy_dir}/db \
+--db_dir ${Cazy_dir}/db \
 --dbCANFile dbCAN-HMMdb-V9.txt \
 --hmm_eval 10 \
 --hmm_cpu 10 \
