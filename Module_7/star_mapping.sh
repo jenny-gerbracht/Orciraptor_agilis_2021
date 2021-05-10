@@ -1,12 +1,13 @@
 #!/bin/bash
 
-# Define paths to working directory locations
-mydir="/path/to/wd"
+source ../config.txt
 moduledir="${mydir}/Module_7"
-readdir="/path/to/reads"
-experiment_file="${moduledir}/experiment.txt"
 
-# Log file
+####################################
+#
+# Setting up log file
+#
+###################################
 # Get date
 date=$(date "+%Y-%m-%d")
 
