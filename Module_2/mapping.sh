@@ -7,16 +7,8 @@
 # Performs the following steps: d) read mapping and sorting to rRNA sequences of Orciraptor agilis and Mougeotia sp., 
 # e) read mapping and sorting to transcriptome of Mougeotia sp.
 
-####################################
-#
-# Paths to reads and experiment file
-#
-####################################
-
-# Paths to the experiment file and to the project folder
-mydir="/path/to/wd"
+source ../config.txt
 moduledir="${mydir}/Module_2"
-experiment_file="${moduledir}/experiment.txt"
 
 ####################################
 #
