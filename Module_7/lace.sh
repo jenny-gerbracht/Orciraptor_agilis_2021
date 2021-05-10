@@ -1,13 +1,13 @@
 #!/bin/bash
 
-# Define paths to working directory locations
-mydir="/path/to/wd"
+source ../config.txt
 moduledir="${mydir}/Module_7"
 
-# Define paths to scripts
-lace_dir="/home/jenny/Lace-1.14.1/Lace/"
-
-# Log file
+####################################
+#
+# Setting up log file
+#
+###################################
 # Get date
 date=$(date "+%Y-%m-%d")
 
@@ -27,7 +27,7 @@ echo "## Lace"
 echo "###################"
 echo ""
 
-${lace_dir}/Lace_run.py \
+${Lace_dir}/Lace_run.py \
 --cores 10 \
 --alternate \
 ${mydir}/Module_3/orciraptor_200_filtered.fasta \
