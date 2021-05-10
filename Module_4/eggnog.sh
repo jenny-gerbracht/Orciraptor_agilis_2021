@@ -1,13 +1,13 @@
 #!/bin/bash
 
-# Define paths to working directory locations
-mydir="/path/to/wd"
+source ../config.txt
 moduledir="${mydir}/Module_4"
 
-# Define paths to scripts
-eggnog_dir="/home/jenny/eggnog-mapper-2.0.5"
-
-# Log file
+####################################
+#
+# Setting up log file
+#
+###################################
 # Get date
 date=$(date "+%Y-%m-%d")
 
@@ -20,7 +20,12 @@ fi
 log_file="${moduledir}/Logs/log_eggnog_$date"
 exec &> >(tee -a "$log_file")
 
-# Create necessary folders
+####################################
+#
+# Make folders
+#
+####################################
+
 if [ ! -d "${moduledir}/eggnog/" ]; then
   mytime=$(date "+%Y-%m-%d %H:%M:%S")
   echo "${mytime} Make directory ${moduledir}/eggnog/"
@@ -34,7 +39,7 @@ echo "## eggnog-mapper"
 echo "###################"
 echo ""
 
-python ${eggnog_dir}/emapper.py \
+python ${Eggnog_dir}/emapper.py \
 -i ${mydir}/Module_3/transdecoder/orciraptor_transdecoder.pep_renamed.fasta \
 --output orciraptor_diamond \
 --output_dir ${moduledir}/eggnog/ \
@@ -45,7 +50,7 @@ python ${eggnog_dir}/emapper.py \
 --cpu 10 \
 --data_dir /srv/Jenny/eggnog-db/
 
-python ${eggnog_dir}/emapper.py \
+python ${Eggnog_dir}/emapper.py \
 -i ${mydir}/Module_3/transdecoder/orciraptor_transdecoder.pep_renamed.fasta \
 --output orciraptor_hmm \
 --output_dir ${moduledir}/eggnog/ \
