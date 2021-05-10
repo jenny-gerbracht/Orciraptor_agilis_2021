@@ -44,7 +44,7 @@ blastp \
 --sensitive \
 --query ${mydir}/Module_3/transdecoder/orciraptor_transdecoder.pep_renamed.fasta \
 --threads 10 \
---db /srv/Jenny/MEROPS/merops.dmnd \
+--db /path/to/merops.dmnd \
 --out ${moduledir}/merops/merops.out \
 --outfmt 6 qseqid sseqid stitle pident length mismatch gapopen qstart qend sstart send evalue bitscore \
 --max-target-seqs 1
