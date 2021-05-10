@@ -1,0 +1,7 @@
+# Paths to working directory, experiment file and directories that contain scripts
+
+mydir="/path/to/wd"
+readdir="/path/to/reads"
+experiment_file="${mydir}/experiment.txt"
+Rcorrector_dir="/path/to/rcorrector/"
+Discard_dir="/path/to/unfixrm"
