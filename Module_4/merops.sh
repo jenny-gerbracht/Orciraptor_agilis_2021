@@ -1,10 +1,13 @@
 #!/bin/bash
 
-# Define paths to working directory locations
-mydir="/path/to/wd"
+source ../config.txt
 moduledir="${mydir}/Module_4"
 
-# Log file
+####################################
+#
+# Setting up log file
+#
+###################################
 # Get date
 date=$(date "+%Y-%m-%d")
 
@@ -17,7 +20,12 @@ fi
 log_file="${moduledir}/Logs/log_merops_$date"
 exec &> >(tee -a "$log_file")
 
-# Create necessary folders
+####################################
+#
+# Make folders
+#
+####################################
+
 if [ ! -d "${moduledir}/merops/" ]; then
   mytime=$(date "+%Y-%m-%d %H:%M:%S")
   echo "${mytime} Make directory ${moduledir}/merops/"
