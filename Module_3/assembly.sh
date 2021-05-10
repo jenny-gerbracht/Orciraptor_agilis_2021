@@ -4,11 +4,14 @@
 #$ -cwd
 #$ -pe threaded 16
 
-# Define paths to working directory locations
-mydir="/path/to/wd"
+source ../config.txt
 moduledir="${mydir}/Module_3"
 
-# Log file
+####################################
+#
+# Setting up log file
+#
+###################################
 # Get date
 date=$(date "+%Y-%m-%d")
 
