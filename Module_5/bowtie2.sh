@@ -4,16 +4,8 @@
 #$ -cwd
 #$ -pe threaded 10
 
-####################################
-#
-# Paths to reads and experiment file
-#
-####################################
-
-# Paths to the experiment file and to the project folder
-mydir="/path/to/wd"
+source ../config.txt
 moduledir="${mydir}/Module_5"
-experiment_file="${moduledir}/experiment.txt"
 
 ####################################
 #
