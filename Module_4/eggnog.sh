@@ -48,7 +48,7 @@ python ${Eggnog_dir}/emapper.py \
 --pfam_transfer best_og \
 --pfam_realign none \
 --cpu 10 \
---data_dir /srv/Jenny/eggnog-db/
+--data_dir /path/to/eggnog-db/
 
 python ${Eggnog_dir}/emapper.py \
 -i ${mydir}/Module_3/transdecoder/orciraptor_transdecoder.pep_renamed.fasta \
@@ -60,4 +60,4 @@ python ${Eggnog_dir}/emapper.py \
 --pfam_transfer best_og \
 --pfam_realign none \
 --cpu 10 \
---data_dir /srv/Jenny/eggnog-db/
+--data_dir /path/to/eggnog-db/
