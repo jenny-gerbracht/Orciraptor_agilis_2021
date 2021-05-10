@@ -1,10 +1,7 @@
-  
-#!/bin/bash
+  #!/bin/bash
 
-# Define paths to working directory locations
-mydir="/path/to/wd"
+source ../config.txt
 moduledir="${mydir}/Module_7"
-experiment_file="${moduledir}/experiment.txt"
 
 gffread \
 ${moduledir}/stringtie_merged.gtf \
