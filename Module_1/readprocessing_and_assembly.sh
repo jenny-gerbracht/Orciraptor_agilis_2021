@@ -4,16 +4,14 @@
 #$ -cwd
 #$ -pe threaded 10
 
-# Define paths to read and working directory locations
-readdir="/path/to/reads"
-mydir="/path/to/wd"
+source ../config.txt
 moduledir="${mydir}/Module_1"
 
-# Define paths to scripts
-Rcorrector_dir="/scratch2/software/anaconda/envs/rcorrector/bin/"
-Discard_dir="/scratch4/shess/Jenny/Scripts/"
-
-# Log file
+####################################
+#
+# Setting up log file
+#
+###################################
 # Get date
 date=$(date "+%Y-%m-%d")
 
@@ -26,7 +24,12 @@ fi
 log_file="${moduledir}/Logs/log_$date"
 exec &> >(tee -a "$log_file")
 
-# Create necessary folders
+####################################
+#
+# Make folders
+#
+####################################
+
 if [ ! -d "${moduledir}/readprocessing/" ]; then
   mytime=$(date "+%Y-%m-%d %H:%M:%S")
   echo "${mytime} Make directory ${moduledir}/readprocessing/"
@@ -58,8 +61,8 @@ if [ ! -d "${moduledir}/readprocessing/fastqc/processed/" ]; then
 fi
 
 # Make symlinks
-ln -s ${readdir}/HI.3499.002.D704---D504.NA_R1.fastq ${moduledir}/readprocessing/NA_R1.fastq
-ln -s ${readdir}/HI.3499.002.D704---D504.NA_R2.fastq ${moduledir}/readprocessing/NA_R1.fastq
+ln -s ${readdir_prey}/HI.3499.002.D704---D504.NA_R1.fastq ${moduledir}/readprocessing/NA_R1.fastq
+ln -s ${readdir_prey}/HI.3499.002.D704---D504.NA_R2.fastq ${moduledir}/readprocessing/NA_R1.fastq
 
 # kmer-based error correction with Rcorrector
 echo ""
