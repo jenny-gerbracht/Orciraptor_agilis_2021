@@ -7,25 +7,8 @@
 # Performs the following steps: a) k-mer based error correction using Rcorrector, b) discarding unfixable read pairs, c) quality and adapter trimming with Trim Galore!,
 # d) QC of raw vs processed reads with FastQC
 
-####################################
-#
-# Paths to reads and experiment file
-#
-####################################
-
-# Paths to the experiment file and to the project folder
-mydir="/path/to/wd"
+source ../config.txt
 moduledir="${mydir}/Module_2"
-experiment_file="${moduledir}/experiment.txt"
-
-####################################
-#
-# Paths to scripts
-#
-####################################
-
-Rcorrector_dir="/scratch2/software/anaconda/envs/rcorrector/bin/"
-Discard_dir="/scratch4/shess/Jenny/Scripts/"
 
 ####################################
 #
