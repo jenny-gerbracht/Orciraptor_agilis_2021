@@ -42,7 +42,7 @@ diamond \
 blastp \
 --query ${mydir}/Module_3/transdecoder/orciraptor_transdecoder.pep_renamed.fasta \
 --threads 10 \
---db /srv/Jenny/entap/bin/nr \
+--db /path/to/nr \
 --out ${moduledir}/diamond/diamond_nr.out \
 --outfmt 6 qseqid sseqid pident length evalue stitle \
 --max-target-seqs 1
