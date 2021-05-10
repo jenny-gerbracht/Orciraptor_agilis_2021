@@ -21,7 +21,7 @@ if [ ! -d "${moduledir}/Logs/" ]; then
   echo "${mytime} Make directory ${moduledir}/Logs/"
   mkdir ${moduledir}/Logs/
 fi
-log_file="${moduledir}/Logs/log_$date"
+log_file="${moduledir}/Logs/log_assembly_$date"
 exec &> >(tee -a "$log_file")
 
 ####################################
