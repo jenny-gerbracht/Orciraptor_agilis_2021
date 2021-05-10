@@ -3,9 +3,6 @@
 source ../config.txt
 moduledir="${mydir}/Module_4"
 
-# Define paths to scripts
-Interproscan_dir="/home/jenny/interproscan/interproscan-5.50-84.0"
-
 ####################################
 #
 # Setting up log file
