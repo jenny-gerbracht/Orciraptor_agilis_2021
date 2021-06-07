@@ -44,23 +44,23 @@ blast2go %>%
 ###################
 
 # capture list of genes for functional enrichment testing
-factor_labeling = read.delim(file = paste0(mydir, "/Module_5/GO_analysis/factor_labeling.txt"),
+factor_labeling <- read.delim(file = paste0(mydir, "/Module_5/GO_analysis/factor_labeling.txt"),
                              col.names = c("gene", "cluster"),
                              sep = "\t",
                              quote = "")
-DE_genes = rownames(factor_labeling)
+DE_genes <- rownames(factor_labeling)
 
 
 # get gene lengths
-gene_lengths = read.table(file = paste0(mydir, "/Module_5/GO_analysis/gene_lengths.txt"), 
+gene_lengths <- read.table(file = paste0(mydir, "/Module_5/GO_analysis/gene_lengths.txt"), 
                           header = TRUE, 
                           row.names=1, 
                           com = '')
-gene_lengths = as.matrix(gene_lengths[,1, drop=FALSE])
+gene_lengths <- as.matrix(gene_lengths[,1, drop=FALSE])
 
 
 # get background gene list
-background = read.table(file = paste0(mydir, "/Module_5/background.txt"),
+background <- read.table(file = paste0(mydir, "/Module_5/background.txt"),
                         row.names = 1)
 
 # Cluster with ggplot2
