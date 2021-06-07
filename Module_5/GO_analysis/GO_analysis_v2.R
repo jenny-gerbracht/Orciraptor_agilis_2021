@@ -68,7 +68,7 @@ cluster_dotplots <- list()
 cluster_dotplots_psorted <- list()
 cluster_results <- list()
 clusters <- unique(factor_labeling$cluster)
-sample_set_gene_ids = rownames(background)
+sample_set_gene_ids <- rownames(background)
 sample_set_gene_lengths <- gene_lengths[sample_set_gene_ids,]
 
 #test
