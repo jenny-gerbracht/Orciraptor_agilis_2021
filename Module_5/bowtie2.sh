@@ -4,6 +4,14 @@
 #$ -cwd
 #$ -pe threaded 10
 
+###################################################################
+#Script Name	:bowtie2.sh		                                                                                              
+#Description	:Run bowtie2 mapping and quantification with salmon                                                       
+#Args:                                                                                           
+#Author	:Jennifer Gerbracht                                               
+#Email		:jennifer.gerbracht@gmx.de                                           
+###################################################################
+
 source ../config.txt
 moduledir="${mydir}/Module_5"
 
