@@ -1,5 +1,13 @@
 #!/bin/bash
 
+###################################################################
+#Script Name	:lace.sh		                                                                                              
+#Description	:Run lace to create supertranscriptome                                                       
+#Args:                                                                                           
+#Author	:Jennifer Gerbracht                                               
+#Email		:jennifer.gerbracht@gmx.de                                           
+###################################################################
+
 source ../config.txt
 moduledir="${mydir}/Module_7"
 
