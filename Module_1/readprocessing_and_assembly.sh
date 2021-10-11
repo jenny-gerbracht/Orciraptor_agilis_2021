@@ -4,6 +4,15 @@
 #$ -cwd
 #$ -pe threaded 10
 
+###################################################################
+#Script Name	:readprocessing_and_assembly.sh		                                                                                              
+#Description	:Performs read processing (Rcorrector and Trim-Galore!), FastQC analysis of raw vs. processed reads,
+#		 and de novo assembly of Mougeotia sp.                                                                               
+#Args:                                                                                           
+#Author	:Jennifer Gerbracht                                               
+#Email		:jennifer.gerbracht@gmx.de                                           
+###################################################################
+
 source ../config.txt
 moduledir="${mydir}/Module_1"
 
