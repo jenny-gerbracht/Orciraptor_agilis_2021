@@ -45,5 +45,5 @@ fi
 
 cd transdecoder
 
-TransDecoder.LongOrfs -t ../SuperDuper_stringtie.fasta
-TransDecoder.Predict -t ../SuperDuper_stringtie.fasta
+TransDecoder.LongOrfs -t ${moduledir}/SuperDuper_stringtie.fasta
+TransDecoder.Predict -t ${moduledir}/SuperDuper_stringtie.fasta
