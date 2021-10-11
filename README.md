@@ -1,17 +1,7 @@
 # Orciraptor_agilis_2021
 Read processing and filtering, *de novo* transcriptome assembly (rnaSPAdes) of *Orciraptor agilis* RNA-seq data
 
-## Module 1: Read processing and *de novo* transcriptome assembly of prey organism *Mougeotia* sp.
-
-1. Run readprocessing_and_assembly.sh, output is *de novo* transcriptome assembly of *Mougeotia* sp.
-2. Predict ORFs to use later for decontamination: transdecoder.sh
-3. Filter transcriptome for contigs larger than 200 nt with seqkit_length.sh (only for upload)
-
-## Module 2: Read processing of *Orciraptor agilis*
-
-1. Run symlinks.sh
-2. Run readprocessing.sh. Output are quality filtered and adapter trimmed reads.
-3. Run mapping.sh. Output are reads that do not map to sequences from rRNA and/or *Mougeotia* sp.
+## Module 1 + 2: See repository "Orciraptor_agilis_2021_Trinity"
 
 ## Module 3: *De novo* transcriptome assembly, decontamination, ORF prediction
 
