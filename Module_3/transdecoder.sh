@@ -47,7 +47,7 @@ cd transdecoder
 
 source activate transdecoder
 
-TransDecoder.LongOrfs -t ../orciraptor_200_filtered.fasta
-TransDecoder.Predict -t ../orciraptor_200_filtered.fasta
+TransDecoder.LongOrfs -t ${moduledir}/orciraptor_200_filtered.fasta
+TransDecoder.Predict -t ${moduledir}/orciraptor_200_filtered.fasta
 
 source deactivate
