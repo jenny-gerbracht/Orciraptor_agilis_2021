@@ -1,5 +1,5 @@
 # Orciraptor_agilis_2021
-Read processing and filtering, *de novo* transcriptome assembly, differential gene expression analysis and functional annotation of *Orciraptor agilis* RNA-seq data
+Read processing and filtering, *de novo* transcriptome assembly (rnaSPAdes) of *Orciraptor agilis* RNA-seq data
 
 ## Module 1: Read processing and *de novo* transcriptome assembly of prey organism *Mougeotia* sp.
 
