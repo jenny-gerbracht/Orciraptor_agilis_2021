@@ -1,5 +1,13 @@
 #!/bin/bash
 
+###################################################################
+#Script Name	:stringtie.sh		                                                                                              
+#Description	:Run stringtie to assemble transcripts from mapped reads and merge across samples                                                       
+#Args:                                                                                           
+#Author	:Jennifer Gerbracht                                               
+#Email		:jennifer.gerbracht@gmx.de                                           
+###################################################################
+
 source ../config.txt
 moduledir="${mydir}/Module_7"
 
