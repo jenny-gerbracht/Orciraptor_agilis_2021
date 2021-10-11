@@ -3,6 +3,14 @@
 . /etc/profile
 #$ -cwd
 
+###################################################################
+#Script Name	:stringtie_transdecoder.sh		                                                                                              
+#Description	:Predict ORFs for stringtie sequences                                                      
+#Args:                                                                                           
+#Author	:Jennifer Gerbracht                                               
+#Email		:jennifer.gerbracht@gmx.de                                           
+###################################################################
+
 source ../config.txt
 moduledir="${mydir}/Module_7"
 
