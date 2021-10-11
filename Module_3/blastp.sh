@@ -1,5 +1,14 @@
 #!/bin/bash
 
+###################################################################
+#Script Name	:blastn.sh		                                                                                              
+#Description	:Runs blastp search of Orciraptor vs. Mougeotia proteome,
+#              returns one hit per ORF
+#Args:                                                                                           
+#Author	:Jennifer Gerbracht                                               
+#Email		:jennifer.gerbracht@gmx.de                                           
+###################################################################
+
 source ../config.txt
 moduledir="${mydir}/Module_3"
 
