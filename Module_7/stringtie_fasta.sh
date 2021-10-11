@@ -1,4 +1,12 @@
   #!/bin/bash
+  
+###################################################################
+#Script Name	:stringtie_fasta.sh		                                                                                              
+#Description	:Obtain sequences as fasta from stringtie gtf file                                                       
+#Args:                                                                                           
+#Author	:Jennifer Gerbracht                                               
+#Email		:jennifer.gerbracht@gmx.de                                           
+###################################################################
 
 source ../config.txt
 moduledir="${mydir}/Module_7"
