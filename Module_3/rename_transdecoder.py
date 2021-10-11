@@ -1,4 +1,11 @@
-## Renames sequences from the TransDecoder output.
+###################################################################
+#Script Name	:rename_transdecoder.py	                                                                                              
+#Description	:Renames sequences from the TransDecoder output (version 5.5.0).                                                                            
+#Args		:.pep output from TransDecoder
+#Usage		:python Change_Seqname_TransDecoder.py <TransDecoder.pep>                                                                                 
+#Author	:Tommy Harding and Jennifer Gerbracht                                              
+#Email		:                                          
+###################################################################
 
 import sys
 
