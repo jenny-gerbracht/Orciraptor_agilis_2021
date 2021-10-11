@@ -1,5 +1,13 @@
 #!/bin/bash
 
+###################################################################
+#Script Name	:star_mapping.sh		                                                                                              
+#Description	:Perform STAR mapping to supertranscriptome                                                       
+#Args:                                                                                           
+#Author	:Jennifer Gerbracht                                               
+#Email		:jennifer.gerbracht@gmx.de                                           
+###################################################################
+
 source ../config.txt
 moduledir="${mydir}/Module_7"
 
