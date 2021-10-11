@@ -1,5 +1,14 @@
 #!/bin/bash
 
+###################################################################
+#Script Name	:blastn.sh		                                                                                              
+#Description	:Runs blast search against nt database, returns one hit
+#		 per contig with taxonomic assignment                                                                               
+#Args:                                                                                           
+#Author	:Jennifer Gerbracht                                               
+#Email		:jennifer.gerbracht@gmx.de                                           
+###################################################################
+
 blastn -db path/to/nt \
        -query orciraptor_200.fasta \
        -outfmt '6 qseqid sseqid pident length evalue bitscore sgi sacc staxids sskingdoms sscinames scomnames stitle' \
