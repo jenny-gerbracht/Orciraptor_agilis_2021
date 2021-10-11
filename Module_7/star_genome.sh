@@ -1,5 +1,13 @@
 #!/bin/bash
 
+###################################################################
+#Script Name	:star_genome.sh		                                                                                              
+#Description	:Generate genome index of supertranscriptome for STAR mapping                                                  
+#Args:                                                                                           
+#Author	:Jennifer Gerbracht                                               
+#Email		:jennifer.gerbracht@gmx.de                                           
+###################################################################
+
 source ../config.txt
 moduledir="${mydir}/Module_7"
 
