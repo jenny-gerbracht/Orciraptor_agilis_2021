@@ -19,9 +19,12 @@ python rename_transdecoder.py orciraptor_200_filtered2.fasta.transdecoder.pep
 ```
 ## Module 5: Generate gene_trans_map
 1) Generate gene_trans_map file for Lace: gene_trans_map.R
+2) Mapping the processed reads back to the newly generated transcriptome with bowtie2 and counting with salmon in alignment-mode (bowtie2.sh).
 
 ## Module 6: Assembly summary statistics
-1) number of Genes, isoforms, ORFs (status), Ex90 
+1) Number of number + length statistics of contigs was calculated with TrinityStats.pl script from Trinity toolkit
+2) Number, completeness and orientation of ORFs is summarised with transdecoder_count.sh
+3) ExN50 statistic is calculated with ExN50.sh 
 
 ## Module 7: Supertranscripts
 1) Run Lace to generate supertranscript fasta: lace.sh
