@@ -3,16 +3,14 @@ Read processing and filtering, *de novo* transcriptome assembly, differential ge
 
 ## Module 1: Read processing and *de novo* transcriptome assembly of prey organism *Mougeotia* sp.
 
-1. [MISSING, UPLOAD SRA!] Download of *Mougeotia* sp. RNA-seq data 
-2. Run readprocessing_and_assembly.sh, output is *de novo* transcriptome assembly of *Mougeotia* sp.
-3. Predict ORFs to use later for decontamination: transdecoder.sh
+1. Run readprocessing_and_assembly.sh, output is *de novo* transcriptome assembly of *Mougeotia* sp.
+2. Predict ORFs to use later for decontamination: transdecoder.sh
 
 ## Module 2: Read processing of *Orciraptor agilis*
 
-1. [MISSING, UPLOAD SRA!] Download *Orciraptor agilis* RNA-seq data
-2. Run symlinks.sh
-3. Run readprocessing.sh. Output are quality filtered and adapter trimmed reads.
-4. Run mapping.sh. Output are reads that do not map to sequences from rRNA and/or *Mougeotia* sp.
+1. Run symlinks.sh
+2. Run readprocessing.sh. Output are quality filtered and adapter trimmed reads.
+3. Run mapping.sh. Output are reads that do not map to sequences from rRNA and/or *Mougeotia* sp.
 
 ## Module 3: *De novo* transcriptome assembly, decontamination, ORF prediction
 
@@ -31,19 +29,8 @@ perl removesmalls.pl 200 ${moduledir}/orciraptor_rnaspades/transcripts.fasta > o
 ```
 python rename_transdecoder.py orciraptor_200_filtered2.fasta.transdecoder.pep
 ```
-
-## Module 4: Functional annotation
-1. Run eggnog-mapper in diamond and hmm mode: eggnog.sh. Parse so that hmm annotation is used if there is no diamond annotation: eggnog_parse.R. 
-2. Run InterProScan using interproscan.sh
-3. Run a Diamond blastp search vs nr database (nr database downloaded in fasta format from https://ftp.ncbi.nlm.nih.gov/blast/db/FASTA/ on 2021-03-21 and formated as diamond db): diamond.sh
-4. Annotation of carbohydrate-active enzymes (CAZymes) with with dbcan2 in HMM mode (database dbCAN-HMMdb-V9): cazy.sh
-5. Annotation of peptidases with MEROPS database (database merops_scan.lib updated on 2019-05-19 from https://ftp.ebi.ac.uk/pub/databases/merops/current_release/): merops.sh
-
-## Module 5: Differential gene expression analysis
-1) Mapping the processed reads back to the newly generated transcriptome with bowtie2 and counting with salmon in alignment-mode (bowtie2.sh).
-2) Perform 
-3) Output table with parsed functional annotation and expression info
-4) Generate Figures 
+## Module 5: Generate gene_trans_map
+1) Generate gene_trans_map file for Lace: gene_trans_map.R
 
 ## Module 6: Assembly summary statistics
 1) number of Genes, isoforms, ORFs (status), Ex90 
