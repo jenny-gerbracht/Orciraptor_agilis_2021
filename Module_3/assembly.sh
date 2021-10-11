@@ -4,6 +4,14 @@
 #$ -cwd
 #$ -pe threaded 16
 
+###################################################################
+#Script Name	:assembly.sh		                                                                                              
+#Description	:Performs de novo transcriptome assembly with rnaSPAdes for Orciraptor agilis                                                                               
+#Args:                                                                                           
+#Author	:Jennifer Gerbracht                                               
+#Email		:jennifer.gerbracht@gmx.de                                           
+###################################################################
+
 source ../config.txt
 moduledir="${mydir}/Module_3"
 
