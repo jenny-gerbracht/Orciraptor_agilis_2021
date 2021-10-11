@@ -3,6 +3,14 @@
 . /etc/profile
 #$ -cwd
 
+###################################################################
+#Script Name	:transdecoder.sh		                                                                                              
+#Description	:Predicts ORFs for Orciraptor agilis de novo transcriptome                                                                               
+#Args:                                                                                           
+#Author	:Jennifer Gerbracht                                               
+#Email		:jennifer.gerbracht@gmx.de                                           
+###################################################################
+
 source ../config.txt
 moduledir="${mydir}/Module_3"
 
