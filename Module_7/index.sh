@@ -1,5 +1,13 @@
 #!/bin/bash
 
+###################################################################
+#Script Name	:index.sh		                                                                                              
+#Description	:Index bam files from STAR mapping                                                      
+#Args:                                                                                           
+#Author	:Jennifer Gerbracht                                               
+#Email		:jennifer.gerbracht@gmx.de                                           
+###################################################################
+
 source ../config.txt
 moduledir="${mydir}/Module_7"
 
