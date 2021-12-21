@@ -1,3 +1,10 @@
+###################################################################
+#Script Name	:gene_trans_map.R		                                                                                              
+#Description	:Generates gene trans map for rnaSPAdes assembly                                                       
+#Author	:Jennifer Gerbracht                                               
+#Email		:jennifer.gerbracht@gmx.de                                           
+###################################################################
+
 library(seqinr)
 library(stringr)
 
